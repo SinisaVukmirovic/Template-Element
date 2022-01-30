@@ -9,15 +9,11 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    
-    <div class="search-wrapper">
-        <label for="search">Search Users</label>
-        <input type="search" id="search" data-search-input>
-    </div>
     <div class="user-cards" data-user-cards-container></div>
 
     <template data-usercard-template>
         <div class="card">
+            <img class="profile" data-card-profile src="" alt="Profile pic">
             <div class="header" data-card-header></div>
             <div class="body" data-card-body></div>
         </div>

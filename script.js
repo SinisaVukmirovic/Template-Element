@@ -1,37 +1,31 @@
-const APIurl = 'https://jsonplaceholder.typicode.com/users';
+const APIurl = 'https://randomuser.me/api/?results=30';
 
-const searchInput = document.querySelector('[data-search-input]');
 const userCardsContainer = document.querySelector('[data-user-cards-container]');
 const userCardTemplate = document.querySelector('[data-usercard-template]');
-
-let users = [];
 
 fetch(APIurl)
     .then(res => res.json())
     .then(data => {
-        users = data.map(user => {
-            const card = userCardTemplate.content.cloneNode(true).children[0];
+        const users = data.results;
+        console.log(users);
 
-            const cardHeader = card.querySelector('[data-card-header]');
-            const cardBody = card.querySelector('[data-card-body]');
+        users.forEach(user => {
+            user = { 
+                name: `${user.name.first} ${user.name.last}`, 
+                email: user.email,
+                pic: user.picture.medium
+            }
 
-            cardHeader.textContent = user.name;
-            cardBody.textContent = user.email;
+        const card = userCardTemplate.content.cloneNode(true).children[0];
 
-            userCardsContainer.append(card);
+        const cardProfile = card.querySelector('[data-card-profile]');
+        const cardHeader = card.querySelector('[data-card-header]');
+        const cardBody = card.querySelector('[data-card-body]');
 
-            return { name: user.name, email: user.email, element: card }
-        });
-    });
+        cardProfile.src = user.pic;
+        cardHeader.textContent = user.name;
+        cardBody.textContent = user.email;
 
-const searchUsers = (e) => {
-    const value = e.target.value.toLowerCase();
-    
-    users.forEach(user => {
-        const isVisible = user.name.toLowerCase().includes(value) || user.email.toLowerCase().includes(value);
-
-        user.element.classList.toggle('hide', !isVisible);
-    });
-}
-
-searchInput.addEventListener('input', searchUsers);
+        userCardsContainer.append(card);
+    });       
+});
