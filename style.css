@@ -4,16 +4,6 @@ body {
     font-family: sans-serif;
 }
 
-.search-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-    width: 60%;
-    margin: 3rem auto;
-    padding: 1rem;
-    /* background-color: #333; */
-}
-
 input {
     font-size: 1rem;
 }
@@ -21,7 +11,7 @@ input {
 .user-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: .5rem;
+    gap: 1rem;
     margin-top: 1rem;
     width: 80%;
     margin: 3rem auto;
@@ -43,11 +33,12 @@ input {
 }
 
 .card > .header {
+    font-size: 1.2rem;
     margin-bottom: .5rem;
 }
 
 .card > .body {
-    font-size: .8rem;
+    font-size: .9rem;
     color: #ccc;
 }
 

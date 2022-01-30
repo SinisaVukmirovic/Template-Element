@@ -7,8 +7,7 @@ fetch(APIurl)
     .then(res => res.json())
     .then(data => {
         const users = data.results;
-        console.log(users);
-
+        // console.log(users);
         users.forEach(user => {
             user = { 
                 name: `${user.name.first} ${user.name.last}`, 
@@ -24,7 +23,7 @@ fetch(APIurl)
 
         cardProfile.src = user.pic;
         cardHeader.textContent = user.name;
-        cardBody.textContent = user.email;
+        cardBody.textContent += user.email;
 
         userCardsContainer.append(card);
     });       
