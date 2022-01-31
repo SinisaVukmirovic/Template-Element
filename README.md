@@ -1,11 +1,10 @@
-## <template>: The Content Template element
+## \<template\>: The Content Template element
 
 ### The <template> HTML element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
 
 ### Think of a template as a content fragment that is being stored for subsequent use in the document. While the parser does process the contents of the <template> element while loading the page, it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
 
-#### Clone the new row and insert it into the table
-#### const card = userCardTemplate.content.cloneNode(true);
+#### Syntax: const card = userCardTemplate.content.cloneNode(true);
 
 #### Getting the templete's content and cloning it with cloneNode(true)
 #### This is returning a "document fragment". To use the content inside of this document fragment we get the very first child with const card = userCardTemplate.content.cloneNode(true).children[0];
